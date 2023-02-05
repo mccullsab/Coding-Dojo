@@ -1,0 +1,29 @@
+.button-1 {
+    color: aqua;
+    background-color: lightgrey;
+    outline: aqua;
+    border-color: aqua;
+    border-radius: 15px;
+    font-weight: 1000;
+    width: 100px;
+    height: 25px;
+    margin: 10px;
+}
+
+.button-2 {
+    color: white;
+    background-color: aquamarine;
+    border-radius: 100%;
+    border-color: aquamarine;
+    margin: 10px;
+
+}
+
+.button-3 {
+    color: white;
+    background-color: blue;
+    outline: 2px black;
+    box-shadow: 10px 5px 5px black;
+    margin: 10px;
+    height: 25px;
+}

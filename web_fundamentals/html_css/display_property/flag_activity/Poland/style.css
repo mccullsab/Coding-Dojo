@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    position: 0px;
+}
+
+.white{
+    background-color: #FFFFFF;
+    /* height: 50%; */
+    padding: 10%;
+    width: 180px;
+    border: solid #DC143C;
+}
+.red{
+    background-color: #DC143C;
+    /* height: 50%; */
+    padding: 10%;
+    width: 180px;
+    border: solid #DC143C;
+}

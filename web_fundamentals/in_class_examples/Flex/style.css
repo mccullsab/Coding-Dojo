@@ -1,0 +1,27 @@
+ * {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply flex from the parent element- ONLY affects child, not grandchildren. Containers are things that hold other elements
+ */
+
+ul {
+    display: flex;
+    gap: 20px;
+}
+
+li{
+    display: flex;
+    /* justify-content: space-evenly; */
+    /* margin-left: 30px; */
+}
+
+.flexed {
+    display: flex;
+    justify-content: space-between;
+}
+
+.centered{
+    align-items: center;
+}

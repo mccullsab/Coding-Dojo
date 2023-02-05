@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    position: 0px;
+}
+
+.black{
+    background-color: black;
+    /* height: 50%; */
+    padding: 8%;
+    width: 120px;
+}
+.white{
+    background-color: white;
+    /* height: 50%; */
+    padding: 8%;
+    width: 120px;
+}
+
+body{
+    background-color:#990000;
+}
