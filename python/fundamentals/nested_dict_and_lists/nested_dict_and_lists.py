@@ -51,7 +51,6 @@ students = [
         {'first_name' : 'KB', 'last_name' : 'Tonel'}
     ]
 
-
 students2 = [
         {'first_name':  'Abby', 'last_name' : 'M'},
         {'first_name' : 'John', 'last_name' : 'Rosales'},
