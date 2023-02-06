@@ -1,5 +1,5 @@
 class BankAccount:
-    def __init__(self, interest_rate, balance):
+    def __init__(self, interest_rate, balance=0):
         self.interest_rate = interest_rate
         self.balance = balance    
     def deposit(self,amount):
@@ -24,3 +24,4 @@ abby_acc = BankAccount(.5, 220)
 
 matt_acc.deposit(50).deposit(100).withdraw(10).yield_interest().display_account_info()
 abby_acc.deposit(1000).deposit(1).withdraw(20).withdraw(10000).withdraw(1).withdraw(1).yield_interest().display_account_info()
+
