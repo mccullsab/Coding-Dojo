@@ -11,14 +11,28 @@ class User:
         print(self.last_name)
         print(self.email)
         print(self.age)
+        return self
     def enroll(self):
         self.is_rewards_member = True
         self.gold_card_points = 200
+        return self
     def spend_points(self, amount):
         self.gold_card_points -= amount
-        
+        return self
+
+#Chaining Methods BELOW
 
 matt = User("Matt", "Vasseur", "matt@gmail.com", 27)
+matt.display_info().enroll().spend_points(50).display_info()
+
+abby = User("Abby", "M", "abby@gmail.com", 27)
+abby.enroll().spend_points(50).display_info()
+
+
+#USER BELOW
+
+matt = User("Matt", "Vasseur", "matt@gmail.com", 27)
+
 matt.enroll()
 print(matt.is_rewards_member)
 print(matt.gold_card_points)
