@@ -1,0 +1,17 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+tr, td{
+    height: 30px;
+    width: 30px;
+}
+
+.color1{
+    background-color: green;
+}
+
+.color2{
+    background-color: orange;
+}

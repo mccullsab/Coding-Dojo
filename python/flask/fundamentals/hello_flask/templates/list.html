@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text</title>
+</head>
+<body>
+    <h2>Random Numbers</h2>
+    <ul>
+        {% for num in random_numbers %}
+            <li>{{ num }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Students</h2>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
+        </tr>
+        <tbody>
+                {%for user in user%}
+                <tr>
+                    <td>{{user['first_name']}}</td>
+                    <td>{{user['last_age']}}</td>
+                    <td>{{user['last_age']}}</td>
+                </tr>
+        </tbody>
+    </table>
+</body>
+</html>
