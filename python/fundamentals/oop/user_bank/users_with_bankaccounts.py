@@ -23,6 +23,11 @@ class User:
     def __init__(self, first_name):
         self.first_name = first_name
         self.account = BankAccount(interest_rate = .01, balance = 20)
+        self.accounts = []
+        self.accounts.append(self.account)
+
+    # def add_account(self):
+
     def make_deposit(self, amount):
         self.account.deposit(amount)
         # print(self.account.balance)
@@ -37,8 +42,5 @@ class User:
 
 abby = User("Abby")
 print(abby.make_deposit(100).display_user_balance())
-
-# print(abby.account.deposit(20).display_account_info())
-
     
 
