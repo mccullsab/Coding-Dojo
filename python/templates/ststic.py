@@ -1,5 +1,7 @@
-from flask import Flask
+from flask import Flask, session
 app = Flask(__name__)
+app.secret_key = "MBV!"
+
 
 @app.route('/')
 def hello_world():

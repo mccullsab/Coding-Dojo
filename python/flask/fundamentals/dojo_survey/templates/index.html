@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+    <h1>Dojo Survey</h1>
+    <form action="/process" method="post">
+        <p>Name:
+            <input name="name">
+        </p>
+        <p>Dojo Location:
+            <input name="location">
+        </p>
+        <p>
+            Favorite Language:
+            <input name="language" placeholder="python">
+        </p>
+        <p>
+            Comments:
+            <input name="comment">
+        </p>
+        <a href="/display"><button>Submit</button></a>
+    </form>
+</body>
+
+</html>
