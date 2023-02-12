@@ -5,7 +5,6 @@ app.secret_key = "MBV!"
 
 @app.route('/')
 def home():
-    # session.clear()
     if "num" not in session:
         session['num'] = random.randint(1,10)
     return render_template("index.html")
@@ -18,6 +17,7 @@ def process_guess():
 
 @app.route("/reset")
 def reset():
+    session.clear()
     return redirect("/")
 
 # #RENDER ROUTE
