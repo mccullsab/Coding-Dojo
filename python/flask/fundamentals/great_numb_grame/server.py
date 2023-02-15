@@ -5,6 +5,7 @@ app.secret_key = "MBV!"
 
 @app.route('/')
 def home():
+    # if I haven't already came up with a random number, generate one
     if "num" not in session:
         session['num'] = random.randint(1,10)
     return render_template("index.html")
