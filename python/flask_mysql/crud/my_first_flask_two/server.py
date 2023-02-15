@@ -52,7 +52,15 @@ def create():
     Friend.save(request.form)
     return redirect('/')
 
+@app.route('/friends/update',methods=['POST'])
+def update():
+    Friend.update(request.form)
+    return redirect('/')
+
+@app.route('/friends/delete/<int:friend_id>')
+def delete(friend_id):
+    Friend.delete(friend_id)
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
-
