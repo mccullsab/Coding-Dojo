@@ -15,14 +15,11 @@ def index():
 def new_user():
     return render_template ("user_new.html")
 
-###CREATE capture
-@app.route("/users/create")
+#CREATE capture
+@app.route("/users/create", methods = ['post'])
 def create_user():
-    # print("******************************")
-    # print(request.form)
     user_id = Users.create(request.form)
     return redirect(f"/users/{user_id}/show")
-    #NEVER RENDER ON A POST
 
 #SHOW/ READ ONE RENDER
 @app.route("/users/<int:id>/show")
