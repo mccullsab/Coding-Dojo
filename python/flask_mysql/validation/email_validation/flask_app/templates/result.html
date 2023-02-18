@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>You entered a valid email address- {{session['email']}} - thank you!</p>
+    <h2>Email Addresses Entered:</h2>
+    <table>
+        {%for row in email_list%}
+        <tr>
+            <td>{{row.email}}</td>
+            <td>{{row.created_at}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
