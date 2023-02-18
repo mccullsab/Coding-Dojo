@@ -1,5 +1,7 @@
-
 from flask import render_template, request, redirect, session
+from flask_app import app
+from flask_app.models.survey_model import Survey
+
 
 @app.route('/')
 def form():
@@ -7,16 +9,15 @@ def form():
 
 @app.route('/process', methods = [ 'post' ])
 def process():
-    session['name'] = request.form['name']
-    session['location'] = request.form['location']
-    session['language'] = request.form['language']
-    session['comment'] = request.form['comment']
-    return redirect('/display')
+    if not Survey.validate(request.form):
+        return redirect('/')
+    survey_id = Survey.create(request.form)
+    return redirect(f'/display/{survey_id}')
 
-@app.route('/display')
-def display():
+@app.route('/display/<int:id>')
+def display(id):
+    data = {'id': id}
+    this_survey = Survey.get_one(data)
     print("display")
-    return render_template("display.html")
-
-
+    return render_template("display.html", this_survey = this_survey)
 
