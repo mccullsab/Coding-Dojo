@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>New Author</h1>
+            <form action="/process" method="post">
+                <p>Name:</p>
+                <input type="text" name="name">
+                <button>Create</button>
+            </form>
+        </div>
+        <div>
+            <h1>All Authors</h1>
+            <div class="list">
+                <ul>
+                    {% for row in author_list %}
+                    <li class="list_format"><a href="/authors/{{row.id}}">{{row.name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <br>
+            <br>
+            <a href="#">Add Book</a>
+        </div>
+    </div>
+</body>
+</html>
