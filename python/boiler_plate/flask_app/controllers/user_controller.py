@@ -61,7 +61,7 @@ def user_login():
     return redirect("/dashboard")
 
 #RENDER
-@app.route('/dashboard')
+@app.route('/display')
 def login_display():
     data = {
         'id' : session['user_id']
