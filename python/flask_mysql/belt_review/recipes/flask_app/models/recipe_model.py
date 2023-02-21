@@ -16,6 +16,7 @@ class Recipe:
         self.user_id = data['user_id']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.poster = None
     
     #Create
     @classmethod
@@ -58,9 +59,9 @@ class Recipe:
     def get_by_id(cls, data):
         query = """
                 SELECT * FROM recipes
-                JOIN users
+                LEFT JOIN users
                 ON users.id = recipes.user_id
-                WHERE users.id = %(id)s;
+                WHERE recipes.id = %(id)s;
                 """
         results = connectToMySQL('recipes').query_db(query, data)
         print("#################",results)

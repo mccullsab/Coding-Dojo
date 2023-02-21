@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>HI!</h1>
+    <h1>Welcome, {{logged_user.first_name}}!</h1>
+    <h1>{{this_recipe.name}}</h1>
     <a href="/dashboard">back to recipes</a>
     <a href="/logout">logout</a>
-    <h1>{{this_recipe.name}}</h1>
     <p>Posted By: {{this_recipe.poster.first_name}}</p>
     <p>Description: {{this_recipe.description}}</p>
     <p>Instructions: {{this_recipe.instructions}}</p>
@@ -21,7 +21,7 @@
         {%else%}
         no
         {%endif%}
-       </p>
+    </p>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 from flask_app import app
 from flask import render_template, request, redirect, session
 from flask_app.models.recipe_model import Recipe
+from flask_app.models.user_model import User
 from flask_bcrypt import Bcrypt
 from flask import flash
 bcrypt = Bcrypt(app)
@@ -27,7 +28,12 @@ def create_recipe():
 @app.route('/recipes/<int:id>')
 def show_one_recipe(id):
     this_recipe = Recipe.get_by_id({'id': id})
-    return render_template("recipe_show.html", this_recipe = this_recipe)
+    data = {
+        'id' : session['user_id']
+    }
+    # recipe_instances = Recipe.get_all()
+    logged_user = User.get_one(data)
+    return render_template("recipe_show.html", this_recipe = this_recipe, logged_user=logged_user)
 
 #Edit recipe
 @app.route('/recipes/<int:id>/edit')
@@ -40,7 +46,6 @@ def edit_recipe(id):
 def update_recipe(id):
     if not Recipe.validate(request.form):
         return redirect(f"/recipes/{id}/edit")
-    
     update_data = {
         **request.form,
         'id': id
