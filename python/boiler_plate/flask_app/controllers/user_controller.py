@@ -5,6 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask import flash
 bcrypt = Bcrypt(app)
 
+#RENDER LOGIN/REGISTER
 @app.route('/')
 def register_users():
     # session = session['first_name']
@@ -27,11 +28,13 @@ def user_capture():
     #3. pass to query
     user_id = User.create(data)
     session['user_id'] = user_id
-    return redirect('/display')
+    return redirect('/dashboard')
 
-#RENDER
-@app.route('/display')
+#RENDER DASBOARD
+@app.route('/dashboard')
 def user_display():
+    if 'user_id' not in session:
+        return redirect ('/')
     data = {
         'id' : session['user_id']
     }
@@ -59,15 +62,6 @@ def user_login():
     #if all is good
     session['user_id'] = user_in_db.id
     return redirect("/dashboard")
-
-#RENDER
-@app.route('/display')
-def login_display():
-    data = {
-        'id' : session['user_id']
-    }
-    logged_user = User.get_one(data)
-    return render_template("dashboard.html", logged_user=logged_user)
 
 #LOGOUT
 @app.route('/logout')

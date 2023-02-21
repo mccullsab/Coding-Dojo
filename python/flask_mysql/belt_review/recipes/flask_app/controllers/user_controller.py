@@ -1,10 +1,12 @@
 from flask_app import app
 from flask import render_template, request, redirect, session
 from flask_app.models.user_model import User
+from flask_app.models.recipe_model import Recipe
 from flask_bcrypt import Bcrypt
 from flask import flash
 bcrypt = Bcrypt(app)
 
+#RENDER LOGIN/REGISTER
 @app.route('/')
 def register_users():
     # session = session['first_name']
@@ -37,8 +39,9 @@ def user_display():
     data = {
         'id' : session['user_id']
     }
+    recipe_instances = Recipe.get_all()
     logged_user = User.get_one(data)
-    return render_template("dashboard.html", logged_user=logged_user)
+    return render_template("dashboard.html", logged_user=logged_user, recipe_instances = recipe_instances)
 
 #LOGIN USER - ROUTE
 @app.route("/users/login", methods = ['POST'])

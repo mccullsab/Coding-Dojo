@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HI!</h1>
+    <a href="/dashboard">back to recipes</a>
+    <a href="/logout">logout</a>
+    <h1>{{this_recipe.name}}</h1>
+    <p>Posted By: {{this_recipe.poster.first_name}}</p>
+    <p>Description: {{this_recipe.description}}</p>
+    <p>Instructions: {{this_recipe.instructions}}</p>
+    <p>Date Made: {{this_recipe.date_made}}</p>
+    <p>Under 30? 
+        {%if under_thirty ==1%}
+        yes
+        {%else%}
+        no
+        {%endif%}
+       </p>
+
+</body>
+</html>

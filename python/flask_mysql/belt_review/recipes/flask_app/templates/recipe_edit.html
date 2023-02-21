@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Recipe</title>
+</head>
+<body>
+    <h1>Edit Recipe!</h1>
+    <a href="/dashboard">Back to Recipes</a>
+    <a href="/logout">Logout</a>
+    <div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <form action="/recipe/{{this_recipe.id}}/update" method = "post">
+        <p>Name:</p>
+        <input type="text" name = "name" value="{{this_recipe.name}}">
+        <p>Description:</p>
+        <input type="text" name = "description" value="{{this_recipe.description}}">
+        <p>Instructions:</p>
+        <input type="text" name = "instructions" value="{{this_recipe.instructions}}">
+        <p>Data Cooked/Made:</p>
+        <input type="date" name = "date_made" value="{{this_recipe.date_made}}">
+        <p>Under 30 minutes?</p>
+        yes:
+        <input type="radio" name = "under_thirty" value = 1 checked
+        {%if this_recipe.under_thirty == 1 %}
+        checked     
+        {%endif%}>
+        no:
+        <input type="radio" name = "under_thirty" value = 0
+        {%if this_recipe.under_thirty == 0 %}
+        checked     
+        {%endif%}
+        >
+        <br>
+        <br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
