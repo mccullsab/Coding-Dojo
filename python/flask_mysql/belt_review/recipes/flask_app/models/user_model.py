@@ -13,7 +13,7 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
     
-    #Create
+    #___________________Create user________________
     @classmethod
     def create(cls, data):
         query = """
@@ -23,7 +23,7 @@ class User:
         results = connectToMySQL('recipes').query_db(query, data)
         return results
 
-    #Get One
+    #_____________Get One User (logged_user)______________
     @classmethod
     def get_one(cls, data):
         query = """
@@ -35,6 +35,7 @@ class User:
             return cls(results[0])
         return False
     
+    #___________________Login User_______________
     @classmethod
     def get_by_email(cls, data):
         query = """
@@ -46,7 +47,7 @@ class User:
             return cls(results[0])
         return False
     
-    #Validate
+    #___________________Validate Login/Registration___________
     @staticmethod
     def validate(data):
         is_valid = True

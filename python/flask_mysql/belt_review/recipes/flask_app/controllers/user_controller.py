@@ -6,13 +6,15 @@ from flask_bcrypt import Bcrypt
 from flask import flash
 bcrypt = Bcrypt(app)
 
-#RENDER LOGIN/REGISTER
+#-------------------Render - Login and Registration--------------
+
 @app.route('/')
 def register_users():
     # session = session['first_name']
     return render_template("register.html")
 
-#PROCESS FORM AND VALIDATE
+#----------------------Register User---------------------
+
 @app.route('/process', methods = ['POST'])
 def user_capture():
     if not User.validate(request.form):
@@ -31,7 +33,8 @@ def user_capture():
     session['user_id'] = user_id
     return redirect('/dashboard')
 
-#RENDER DASBOARD
+#-------------Render - All Recipes and Users (Dashboard)----------
+
 @app.route('/dashboard')
 def user_display():
     if 'user_id' not in session:
@@ -43,7 +46,8 @@ def user_display():
     logged_user = User.get_one(data)
     return render_template("dashboard.html", logged_user=logged_user, recipe_instances = recipe_instances)
 
-#LOGIN USER - ROUTE
+#--------------Login User----------------------
+
 @app.route("/users/login", methods = ['POST'])
 def user_login():
     data = {
@@ -65,7 +69,8 @@ def user_login():
     session['user_id'] = user_in_db.id
     return redirect("/dashboard")
 
-#LOGOUT
+#-------------------Logout User---------------------
+
 @app.route('/logout')
 def logout():
     session.clear()

@@ -6,12 +6,14 @@ from flask_bcrypt import Bcrypt
 from flask import flash
 bcrypt = Bcrypt(app)
 
-#display recipe
+#-------------Render - Create a Recipe-------------
+
 @app.route('/recipe/new')
 def new_recipe():
     return render_template("recipe_new.html")
 
-#Create
+#---------------Create a Recipe-------------------
+
 @app.route('/create/recipe', methods = ["POST"])
 def create_recipe():
     print(request.form)
@@ -24,24 +26,26 @@ def create_recipe():
     Recipe.create(recipe_data)
     return redirect('/dashboard')
 
-#Show One (Many Side)
+#---------------Render - Display One Recipe-----------------
+
 @app.route('/recipes/<int:id>')
 def show_one_recipe(id):
     this_recipe = Recipe.get_by_id({'id': id})
     data = {
         'id' : session['user_id']
     }
-    # recipe_instances = Recipe.get_all()
     logged_user = User.get_one(data)
     return render_template("recipe_show.html", this_recipe = this_recipe, logged_user=logged_user)
 
-#Edit recipe
+#---------------Render - Update/Edit Recipe-------------
+
 @app.route('/recipes/<int:id>/edit')
 def edit_recipe(id):
     this_recipe = Recipe.get_by_id({'id':id})
     return render_template("recipe_edit.html", this_recipe = this_recipe)
 
-#Get Action
+#-------------Update/Edit a Recipe-----------------
+
 @app.route('/recipe/<int:id>/update', methods = ['post'])
 def update_recipe(id):
     if not Recipe.validate(request.form):
@@ -53,7 +57,8 @@ def update_recipe(id):
     Recipe.update(update_data)
     return redirect('/dashboard')
 
-#Delete
+#----------------Delete Recipe-----------------
+
 @app.route('/recipes/<int:id>/delete')
 def delete(id):
     Recipe.delete({'id':id})

@@ -18,7 +18,7 @@ class Recipe:
         self.updated_at = data['updated_at']
         self.poster = None
     
-    #Create
+    #_________________Create a Recipe_______________
     @classmethod
     def create(cls, data):
         query = """
@@ -28,7 +28,7 @@ class Recipe:
         results = connectToMySQL('recipes').query_db(query, data)
         return results     
     
-    #Get all Recipes
+    #_________________Get All Recipes_______________
     @classmethod
     def get_all(cls):
         query = """
@@ -42,7 +42,6 @@ class Recipe:
         recipe_instances = []
         for row in results:
             this_recipe = cls(row)
-            # recipe_instances.append(this_recipe)
             user_data = {
                 **row,
                 'id': row['users.id'],
@@ -52,9 +51,9 @@ class Recipe:
             this_user = user_model.User(user_data)
             this_recipe.poster = this_user
             recipe_instances.append(this_recipe)
-        return recipe_instances 
+        return recipe_instances
     
-    #Read ONE
+    #______________________Get One Recipe______________
     @classmethod
     def get_by_id(cls, data):
         query = """
@@ -77,8 +76,9 @@ class Recipe:
             this_user = user_model.User(user_data)
             this_recipe.poster = this_user
             return this_recipe
+        return False
 
-    #Update
+    #___________________Update a recipe__________________
     @classmethod
     def update(cls, data):
         query = """
@@ -94,7 +94,7 @@ class Recipe:
         results = connectToMySQL('recipes').query_db(query, data)
         return results
 
-    #DELETE
+    #____________________Delete a recipe____________
     @classmethod
     def delete(cls, data):
         query="""
@@ -105,7 +105,7 @@ class Recipe:
         return results
 
 
-    #Validate
+    #___________________Validate a Recipe________________
     @staticmethod
     def validate(form_data):
         is_valid = True
