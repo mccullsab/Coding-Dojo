@@ -1,5 +1,3 @@
-name, health, speed default 3, strength default 3
-
 class Ninja {
     constructor(name, health){
         this.name = name;
