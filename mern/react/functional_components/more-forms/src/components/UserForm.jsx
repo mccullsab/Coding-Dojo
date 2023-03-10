@@ -36,7 +36,9 @@ const Form = props => {
 
     const handleConfirmPassword = (e) => {
         setconfirmPassword(e.target.value);
-        if(e.target.value.length !=props.setPassword) {
+        if(e.target.value !== password) {
+            console.log(props.password)
+            console.log(e.target.value)
             setconfirmpasswordError("Passwords must match");
         } else {
             setconfirmpasswordError("");
