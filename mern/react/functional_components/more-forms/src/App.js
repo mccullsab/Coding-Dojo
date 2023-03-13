@@ -7,7 +7,8 @@ import Form from './components/UserForm';
 function App() {
   return (
     <div className="App">
-      <Form/>
+      {/* could put props below withion the form  */}
+      <Form /> 
     </div>
   );
 }

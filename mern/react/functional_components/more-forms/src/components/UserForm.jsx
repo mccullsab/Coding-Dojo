@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
+// props comes from the component = items defined and will not change - access here 
 const Form = props => {
     const [firstName, setfirstName] = useState("");
+    // usestate returns and array with 2 values
+    // the current state (the variable with the value) is what the value is at the moment 
+    // ...and takes the first position of array
+    // the second item in the array lets you change the value
     const [lastName, setlastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -10,7 +15,6 @@ const Form = props => {
     const [emailError, setemailError] = useState("");
     const [passwordError, setpasswordError] = useState("");
     const [confirmpasswordError, setconfirmpasswordError] = useState("");
-
 
     const handleName = (e) => {
         setfirstName(e.target.value);
@@ -58,6 +62,7 @@ const Form = props => {
         e.preventDefault();
         const newUser = { firstName, lastName, email, password, confirmPassword };
         console.log("Welcome", newUser);
+
         setfirstName("");
         setlastName("");
         setEmail("");
