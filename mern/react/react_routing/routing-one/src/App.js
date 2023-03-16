@@ -40,6 +40,15 @@ const Word = (props) => {
   );
 }
 
+// const About = (props) => {
+//   return (
+//     <div>
+//       <h1 style={{ color: "blue" }}>About Component</h1>
+//       <Link to={"/"}>Go Home</Link>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div>
